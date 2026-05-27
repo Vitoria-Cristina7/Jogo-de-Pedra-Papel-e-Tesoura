@@ -14,7 +14,7 @@ body {
   padding: 25px;
   background: linear-gradient(135deg, #1a1027, #2d1240, #3a0f57);
   font-family: Georgia, "Times New Roman", serif;
-  color: white;
+  color: #f5f4fa;
 }
 
 /* CONTAINER */
@@ -86,7 +86,7 @@ option {
 
 .placar div {
   flex: 1;
-  background: rgba(255, 255, 255, 0.08);
+  background: #2b2740;
   border-radius: 20px;
   padding: 22px;
   text-align: center;
@@ -106,7 +106,7 @@ option {
 
 /* BATALHA */
 .batalha {
-  background: rgba(255, 255, 255, 0.08);
+  background: #2b2740;
   border-radius: 22px;
   padding: 35px;
   text-align: center;
@@ -134,7 +134,7 @@ button {
   padding: 14px 22px;
   border: none;
   border-radius: 14px;
-  background: linear-gradient(135deg, #ff4fa3, #b026ff);
+  background: #2b2740;
   color: white;
   font-size: 1rem;
   font-family: inherit;
@@ -148,7 +148,7 @@ button:hover {
 
 /* HISTÓRICO */
 .historico div {
-  background: rgba(255, 255, 255, 0.08);
+  background: #2b2740;
   border-radius: 20px;
   padding: 20px;
 }
