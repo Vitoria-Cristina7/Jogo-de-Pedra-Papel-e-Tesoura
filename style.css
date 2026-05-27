@@ -1,0 +1,197 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  background: linear-gradient(135deg, #1a1027, #2d1240, #3a0f57);
+  font-family: Georgia, "Times New Roman", serif;
+  color: white;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 760px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 35px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ff7ac6;
+  text-shadow: 0 0 12px rgba(255, 122, 198, 0.5); /* único brilho permitido */
+}
+
+header p {
+  color: #e8d9ff;
+  font-size: 1rem;
+}
+
+/* SEÇÕES */
+section {
+  margin-bottom: 28px;
+}
+
+/* MODO */
+.modo-jogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+label {
+  font-weight: bold;
+  color: #ffd7f1;
+}
+
+select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-family: inherit;
+  outline: none;
+}
+
+option {
+  color: black;
+}
+
+/* PLACAR */
+.placar {
+  display: flex;
+  gap: 15px;
+}
+
+.placar div {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 22px;
+  text-align: center;
+}
+
+.placar p:first-child {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #f7d8ff;
+}
+
+.placar p:last-child {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #ff9de2;
+}
+
+/* BATALHA */
+.batalha {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 35px;
+  text-align: center;
+}
+
+.batalha p:first-child {
+  font-size: 3.2rem;
+  margin-bottom: 15px;
+}
+
+#mensagem {
+  color: #f8e9ff;
+  font-size: 1rem;
+}
+
+/* BOTÕES */
+.botoes div {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff4fa3, #b026ff);
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.07);
+}
+
+/* HISTÓRICO */
+.historico div {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.historico p:first-child {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ffd4f5;
+}
+
+#zerar {
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #ff3c6f, #ff008c);
+}
+
+#listaHistorico {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#listaHistorico p {
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: 12px;
+  border-radius: 12px;
+  color: #f5eaff;
+}
+
+/* RESPONSIVO */
+@media (max-width: 650px) {
+  .placar {
+    flex-direction: column;
+  }
+
+  .botoes div {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 2.3rem;
+  }
+}
