@@ -8,38 +8,36 @@
 /* BODY */
 body {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 25px;
+  padding: 40px 20px;
   background: linear-gradient(135deg, #1a1027, #2d1240, #3a0f57);
   font-family: Georgia, "Times New Roman", serif;
-  color: #f5f4fa;
+  color: white;
 }
 
 /* CONTAINER */
 .container {
   width: 100%;
-  max-width: 760px;
+  max-width: 800px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 28px;
   padding: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
 /* HEADER */
 header {
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
+  padding: auto;
 }
 
 header h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
-  color: #ff7ac6;
-  text-shadow: 0 0 12px rgba(255, 122, 198, 0.5); /* único brilho permitido */
+  color: white;
+  margin-bottom: 8px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
 }
 
 header p {
@@ -49,7 +47,7 @@ header p {
 
 /* SEÇÕES */
 section {
-  margin-bottom: 28px;
+  margin-bottom: 25px;
 }
 
 /* MODO */
@@ -69,10 +67,9 @@ select {
   padding: 10px 14px;
   border-radius: 12px;
   border: none;
-  background-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.12);
   color: white;
   font-family: inherit;
-  outline: none;
 }
 
 option {
@@ -87,40 +84,38 @@ option {
 
 .placar div {
   flex: 1;
-  background: #2b2740;
-  border-radius: 20px;
-  padding: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
   text-align: center;
 }
 
 .placar p:first-child {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
   color: #f7d8ff;
+  margin-bottom: 10px;
 }
 
 .placar p:last-child {
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   font-weight: bold;
   color: #ff9de2;
 }
 
 /* BATALHA */
 .batalha {
-  background: #2b2740;
-  border-radius: 22px;
-  padding: 35px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
   text-align: center;
 }
 
 .batalha p:first-child {
-  font-size: 3.2rem;
+  font-size: 3rem;
   margin-bottom: 15px;
 }
 
 #mensagem {
   color: #f8e9ff;
-  font-size: 1rem;
 }
 
 /* BOTÕES */
@@ -132,32 +127,31 @@ option {
 }
 
 button {
-  padding: 14px 22px;
+  padding: 14px 20px;
   border: none;
   border-radius: 14px;
-  background: #2b2740;
+  background: #2d1240;
   color: white;
-  font-size: 1rem;
   font-family: inherit;
   cursor: pointer;
   transition: 0.3s;
 }
 
 button:hover {
-  transform: scale(1.07);
+  transform: scale(1.06);
 }
 
 /* HISTÓRICO */
 .historico div {
-  background: #2b2740;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
   padding: 20px;
 }
 
 .historico p:first-child {
-  font-weight: bold;
-  margin-bottom: 15px;
   color: #ffd4f5;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 #zerar {
@@ -172,7 +166,7 @@ button:hover {
 }
 
 #listaHistorico p {
-  background-color: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.07);
   padding: 12px;
   border-radius: 12px;
   color: #f5eaff;
@@ -180,6 +174,7 @@ button:hover {
 
 /* RESPONSIVO */
 @media (max-width: 650px) {
+
   .placar {
     flex-direction: column;
   }
@@ -195,4 +190,5 @@ button:hover {
   header h1 {
     font-size: 2.3rem;
   }
+
 }
