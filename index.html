@@ -4,17 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedra, Papel e Tesoura</title>
-
+  
   <!-- NOSSO CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <main class="container">
+  <header>
 
     <h1>Pedra, Papel e Tesoura</h1>
+
+  </header>
+
+  <main class="container">
+
     <h2>Desafie o computador. Escolha seu modo e jogue!</h2>
+
+    <!-- PLACAR -->
+    <section class="placar">
+      <div id="voce">
+        <p>VOCÊ</p>
+        <p>0</p>
+      </div>
+
+      <div id="empate">
+        <p>EMPATES</p>
+        <p>0</p>
+      </div>
+
+      <div id="computador">
+        <p>COMPUTADOR</p>
+        <p>0</p>
+      </div>
+    </section>
+
+    <!-- ESPAÇO DE BATALHA -->
+    <section>
+      <div>
+        <p>✊</p>
+        <p>✋</p>
+        <p>✌️</p>
+        <p>Faça sua jogada para começar</p>
+      </div>
+    </section>
 
     <!-- MODO DE JOGO -->
     <section class="modo-jogo">
@@ -33,9 +66,17 @@
       <button id="tesoura">✌️ Tesoura</button>
     </section>
 
+    <!-- HISTÓRICO -->
+    <section>
+      <div>
+        <p>Últimas 10 rodadas</p>
+        <button type="button">Zerar placar</button>
+        <p>Nenhuma rodada ainda.</p>
+      </div>
+    </section>
+
   </main>
 
-  <!-- NOSSO JAVASCRIPT -->
   <script src="script.js"></script>
 
 </body>
