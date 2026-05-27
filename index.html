@@ -1,69 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
-
   <title>Pedra, Papel e Tesoura</title>
 </head>
 
 <body>
 
   <header>
-
     <h1>Pedra, Papel e Tesoura</h1>
-
-    <p>
-      Desafie o computador. Escolha seu modo e jogue!
-    </p>
-
+    <p>Desafie o computador. Escolha seu modo e jogue!</p>
   </header>
 
   <main class="container">
-
     <!-- MODO DE JOGO -->
     <section class="modo-jogo">
 
       <label for="modo">Modo de jogo:</label>
 
       <select id="modo">
-
         <option value="3">Melhor de 3</option>
-
         <option value="5">Melhor de 5</option>
-
       </select>
-
+      
     </section>
 
     <!-- PLACAR -->
     <section class="placar">
 
       <div id="voce">
-
         <p>VOCÊ</p>
-
         <p id="pontosVoce">0</p>
-
       </div>
 
       <div id="empate">
-
         <p>EMPATES</p>
-
         <p id="pontosEmpate">0</p>
-
       </div>
 
       <div id="computador">
-
         <p>COMPUTADOR</p>
-
         <p id="pontosComputador">0</p>
-
       </div>
 
     </section>
@@ -72,13 +51,8 @@
     <section class="batalha">
 
       <div>
-
         <p>✊ ✋ ✌️</p>
-
-        <p id="mensagem">
-          Faça sua jogada para começar.
-        </p>
-
+        <p id="mensagem">Faça sua jogada para começar</p>
       </div>
 
     </section>
@@ -87,7 +61,6 @@
     <section class="botoes">
 
       <div>
-
         <button id="pedra">
           ✊ Pedra
         </button>
@@ -99,7 +72,6 @@
         <button id="tesoura">
           ✌️ Tesoura
         </button>
-
       </div>
 
     </section>
@@ -108,19 +80,11 @@
     <section class="historico">
 
       <div>
-
         <p>Últimas 10 rodadas</p>
-
-        <button type="button" id="zerar">
-          Zerar placar
-        </button>
-
+        <button type="button" id="zerar">Zerar placar</button>
         <div id="listaHistorico">
-
           <p>Nenhuma rodada ainda.</p>
-
         </div>
-
       </div>
 
     </section>
