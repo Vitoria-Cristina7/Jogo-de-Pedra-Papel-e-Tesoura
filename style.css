@@ -11,6 +11,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 25px;
   background: linear-gradient(135deg, #1a1027, #2d1240, #3a0f57);
   font-family: Georgia, "Times New Roman", serif;
