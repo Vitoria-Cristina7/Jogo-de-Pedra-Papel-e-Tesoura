@@ -166,4 +166,4 @@ document.getElementById("tesoura").addEventListener("click", function () {
 
 document.getElementById("zerar").addEventListener("click", function () {
   zerarJogo();
-});
+}); 
