@@ -4,6 +4,31 @@ let pontosEmpate = 0;
 let historico = [];
 let jogoTerminado = false;
 
+function jogadaComputador () {
+  const opcoes = ["Pedra", "Papel", "Tesoura"];
+  const aleatorio = Math.floor(Math.random() * 3);
+  return opcoes[aleatorio];
+}
+
+function batalha() {
+  const computador = jogadaComputador();
+  let resultado = ""
+  if (jogador === computador) {
+    resultado = "Empate!";
+    empates = empates + 1;
+  } else if (
+    (jogador === "pedra"   && computador === "tesoura") ||
+    (jogador === "papel"   && computador === "pedra")   ||
+    (jogador === "tesoura" && computador === "papel")
+  ) {
+    resultado = "Voce venceu!";
+    vitorias = vitorias + 1;
+  } else {
+    resultado = "Voce perdeu!";
+    derrotas = derrotas + 1;
+  }
+}
+
 function atualizarPlacar() {
   document.getElementById("pontosVoce").innerHTML = pontosVoce;
   document.getElementById("pontosComputador").innerHTML = pontosComputador;
@@ -52,3 +77,4 @@ document.getElementById("tesoura").addEventListener("click", function() {
 document.getElementById("zerar").addEventListener("click", function() {
   zerarJogo();
 });
+
