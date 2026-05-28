@@ -23,6 +23,58 @@ function atualizarHistorico() {
   }
 }
 
+function jogar(escolhaJogador) {
+
+  if (jogoTerminado === true) {
+    return;
+  }
+
+  const numero = Math.floor(Math.random() * 3);
+
+  let escolhaComputador = "";
+
+  if (numero === 0) {
+    escolhaComputador = "pedra";
+  }
+
+  if (numero === 1) {
+    escolhaComputador = "papel";
+  }
+
+  if (numero === 2) {
+    escolhaComputador = "tesoura";
+  }
+
+  let emojiJogador = "";
+
+  if (escolhaJogador === "pedra") {
+    emojiJogador = "✊";
+  }
+
+  if (escolhaJogador === "papel") {
+    emojiJogador = "✋";
+  }
+
+  if (escolhaJogador === "tesoura") {
+    emojiJogador = "✌️";
+  }
+
+  let emojiComputador = "";
+
+  if (escolhaComputador === "pedra") {
+    emojiComputador = "✊";
+  }
+
+  if (escolhaComputador === "papel") {
+    emojiComputador = "✋";
+  }
+
+  if (escolhaComputador === "tesoura") {
+    emojiComputador = "✌️";
+  }
+
+}
+
 function zerarJogo() {
   pontosVoce = 0;
   pontosComputador = 0;
