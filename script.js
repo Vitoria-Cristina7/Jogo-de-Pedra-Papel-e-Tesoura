@@ -4,12 +4,6 @@ let pontosEmpate = 0;
 let historico = [];
 let jogoTerminado = false;
 
-function jogadaComputador () {
-  const opcoes = ["pedra", "papel", "tesoura"];
-  const aleatorio = Math.floor(Math.random() * 3);
-  return opcoes[aleatorio];
-}
-
 function atualizarPlacar() {
   document.getElementById("pontosVoce").innerHTML = pontosVoce;
   document.getElementById("pontosComputador").innerHTML = pontosComputador;
@@ -21,60 +15,43 @@ function atualizarHistorico() {
 
   if (historico.length === 0) {
     lista.innerHTML = "<p>Nenhuma rodada ainda.</p>";
-  } else {
-    lista.innerHTML = "";
-    for (let i = 0; i < historico.length; i++) {
-      lista.innerHTML += "<p>" + historico[i] + "</p>";
-    }
+    return;
+  }
+
+  lista.innerHTML = "";
+
+  for (let i = 0; i < historico.length; i++) {
+    const paragrafo = document.createElement("p");
+    paragrafo.innerHTML = historico[i];
+    lista.appendChild(paragrafo);
   }
 }
 
-function batalha(escolhaJogador, escolhaComputador) {
-
-  let resultado = "";
-
-  if (escolhaJogador === escolhaComputador) {
-
-    resultado = "🤝 Empate!";
-    pontosEmpate = pontosEmpate + 1;
-
-  } else if (
-    (escolhaJogador === "pedra" && escolhaComputador === "tesoura") ||
-    (escolhaJogador === "papel" && escolhaComputador === "pedra") ||
-    (escolhaJogador === "tesoura" && escolhaComputador === "papel")
-  ) {
-
-    resultado = "✅ Você ganhou!";
-    pontosVoce = pontosVoce + 1;
-
-  } else {
-
-    resultado = "❌ Computador ganhou!";
-    pontosComputador = pontosComputador + 1;
-  }
-
-  return resultado;
-}
-
-function jogar(escolhaJogador) {
+function batalha(escolhaJogador) {
 
   if (jogoTerminado === true) {
     return;
   }
 
-  const escolhaComputador = jogadaComputador();
+  const numero = Math.floor(Math.random() * 3);
+
+  let escolhaComputador = "";
+
+  if (numero === 0) {
+    escolhaComputador = "pedra";
+  } else if (numero === 1) {
+    escolhaComputador = "papel";
+  } else {
+    escolhaComputador = "tesoura";
+  }
 
   let emojiJogador = "";
 
   if (escolhaJogador === "pedra") {
     emojiJogador = "✊";
-  }
-
-  if (escolhaJogador === "papel") {
+  } else if (escolhaJogador === "papel") {
     emojiJogador = "✋";
-  }
-
-  if (escolhaJogador === "tesoura") {
+  } else {
     emojiJogador = "✌️";
   }
 
@@ -82,20 +59,83 @@ function jogar(escolhaJogador) {
 
   if (escolhaComputador === "pedra") {
     emojiComputador = "✊";
-  }
-
-  if (escolhaComputador === "papel") {
+  } else if (escolhaComputador === "papel") {
     emojiComputador = "✋";
-  }
-
-  if (escolhaComputador === "tesoura") {
+  } else {
     emojiComputador = "✌️";
   }
 
-  const resultado = batalha(escolhaJogador, escolhaComputador);
+  let resultado = "";
+
+  if (escolhaJogador === escolhaComputador) {
+
+    pontosEmpate = pontosEmpate + 1;
+    resultado = "🤝 Empate!";
+
+  } else if (
+    (escolhaJogador === "pedra" && escolhaComputador === "tesoura") ||
+    (escolhaJogador === "papel" && escolhaComputador === "pedra") ||
+    (escolhaJogador === "tesoura" && escolhaComputador === "papel")
+  ) {
+
+    pontosVoce = pontosVoce + 1;
+    resultado = "✅ Você ganhou!";
+
+  } else {
+
+    pontosComputador = pontosComputador + 1;
+    resultado = "❌ Computador ganhou!";
+  }
 
   document.getElementById("mensagem").innerHTML =
     emojiJogador + " x " + emojiComputador + " — " + resultado;
+
+  historico.unshift(
+    emojiJogador +
+    " Você x Computador " +
+    emojiComputador +
+    " — " +
+    resultado
+  );
+
+  if (historico.length > 10) {
+    historico.pop();
+  }
+
+  atualizarPlacar();
+  atualizarHistorico();
+
+  const modo = Number(document.getElementById("modo").value);
+
+  if (modo == 3) {
+
+    if (pontosVoce >= 2) {
+      document.getElementById("mensagem").innerHTML =
+        "🏆 Você venceu o jogo!";
+      jogoTerminado = true;
+    }
+
+    if (pontosComputador >= 2) {
+      document.getElementById("mensagem").innerHTML =
+        "💻 O computador venceu o jogo!";
+      jogoTerminado = true;
+    }
+  }
+
+  if (modo == 5) {
+
+    if (pontosVoce >= 3) {
+      document.getElementById("mensagem").innerHTML =
+        "🏆 Você venceu o jogo!";
+      jogoTerminado = true;
+    }
+
+    if (pontosComputador >= 3) {
+      document.getElementById("mensagem").innerHTML =
+        "💻 O computador venceu o jogo!";
+      jogoTerminado = true;
+    }
+  }
 }
 
 function zerarJogo() {
@@ -108,21 +148,22 @@ function zerarJogo() {
   atualizarPlacar();
   atualizarHistorico();
 
-  document.getElementById("mensagem").innerHTML = "Faça sua jogada para começar";
+  document.getElementById("mensagem").innerHTML =
+    "Faça sua jogada para começar";
 }
 
-document.getElementById("pedra").addEventListener("click", function() {
-  jogar("pedra");
+document.getElementById("pedra").addEventListener("click", function () {
+  batalha("pedra");
 });
 
-document.getElementById("papel").addEventListener("click", function() {
-  jogar("papel");
+document.getElementById("papel").addEventListener("click", function () {
+  batalha("papel");
 });
 
-document.getElementById("tesoura").addEventListener("click", function() {
-  jogar("tesoura");
+document.getElementById("tesoura").addEventListener("click", function () {
+  batalha("tesoura");
 });
 
-document.getElementById("zerar").addEventListener("click", function() {
+document.getElementById("zerar").addEventListener("click", function () {
   zerarJogo();
 });
