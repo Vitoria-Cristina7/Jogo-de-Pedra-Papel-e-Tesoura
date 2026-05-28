@@ -10,7 +10,18 @@ function atualizarPlacar() {
   document.getElementById("pontosEmpate").innerHTML = pontosEmpate;
 }
 
+function atualizarHistorico() {
+  const lista = document.getElementById("listaHistorico");
 
+  if (historico.length === 0) {
+    lista.innerHTML = "<p>Nenhuma rodada ainda.</p>";
+  } else {
+    lista.innerHTML = "";
+    for (let i = 0; i < historico.length; i++) {
+      lista.innerHTML += "<p>" + historico[i] + "</p>";
+    }
+  }
+}
 
 function zerarJogo() {
   pontosVoce = 0;
