@@ -5,28 +5,9 @@ let historico = [];
 let jogoTerminado = false;
 
 function jogadaComputador () {
-  const opcoes = ["Pedra", "Papel", "Tesoura"];
+  const opcoes = ["pedra", "papel", "tesoura"];
   const aleatorio = Math.floor(Math.random() * 3);
   return opcoes[aleatorio];
-}
-
-function batalha() {
-  const computador = jogadaComputador();
-  let resultado = ""
-  if (jogador === computador) {
-    resultado = "Empate!";
-    empates = empates + 1;
-  } else if (
-    (jogador === "pedra"   && computador === "tesoura") ||
-    (jogador === "papel"   && computador === "pedra")   ||
-    (jogador === "tesoura" && computador === "papel")
-  ) {
-    resultado = "Voce venceu!";
-    vitorias = vitorias + 1;
-  } else {
-    resultado = "Voce perdeu!";
-    derrotas = derrotas + 1;
-  }
 }
 
 function atualizarPlacar() {
@@ -48,27 +29,40 @@ function atualizarHistorico() {
   }
 }
 
+function batalha(escolhaJogador, escolhaComputador) {
+
+  let resultado = "";
+
+  if (escolhaJogador === escolhaComputador) {
+
+    resultado = "🤝 Empate!";
+    pontosEmpate = pontosEmpate + 1;
+
+  } else if (
+    (escolhaJogador === "pedra" && escolhaComputador === "tesoura") ||
+    (escolhaJogador === "papel" && escolhaComputador === "pedra") ||
+    (escolhaJogador === "tesoura" && escolhaComputador === "papel")
+  ) {
+
+    resultado = "✅ Você ganhou!";
+    pontosVoce = pontosVoce + 1;
+
+  } else {
+
+    resultado = "❌ Computador ganhou!";
+    pontosComputador = pontosComputador + 1;
+  }
+
+  return resultado;
+}
+
 function jogar(escolhaJogador) {
 
   if (jogoTerminado === true) {
     return;
   }
 
-  const numero = Math.floor(Math.random() * 3);
-
-  let escolhaComputador = "";
-
-  if (numero === 0) {
-    escolhaComputador = "pedra";
-  }
-
-  if (numero === 1) {
-    escolhaComputador = "papel";
-  }
-
-  if (numero === 2) {
-    escolhaComputador = "tesoura";
-  }
+  const escolhaComputador = jogadaComputador();
 
   let emojiJogador = "";
 
@@ -98,6 +92,10 @@ function jogar(escolhaJogador) {
     emojiComputador = "✌️";
   }
 
+  const resultado = batalha(escolhaJogador, escolhaComputador);
+
+  document.getElementById("mensagem").innerHTML =
+    emojiJogador + " x " + emojiComputador + " — " + resultado;
 }
 
 function zerarJogo() {
@@ -112,7 +110,6 @@ function zerarJogo() {
 
   document.getElementById("mensagem").innerHTML = "Faça sua jogada para começar";
 }
-
 
 document.getElementById("pedra").addEventListener("click", function() {
   jogar("pedra");
@@ -129,4 +126,3 @@ document.getElementById("tesoura").addEventListener("click", function() {
 document.getElementById("zerar").addEventListener("click", function() {
   zerarJogo();
 });
-
